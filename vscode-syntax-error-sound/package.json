@@ -1,0 +1,54 @@
+{
+  "name": "syntax-error-sound",
+  "displayName": "Syntax Error Sound",
+  "description": "Plays your custom sound whenever a syntax error occurs while coding.",
+  "version": "1.0.0",
+  "publisher": "local-developer",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "syntaxErrorSound.testSound",
+        "title": "Syntax Error Sound: Play Test Sound"
+      },
+      {
+        "command": "syntaxErrorSound.toggle",
+        "title": "Syntax Error Sound: Toggle On/Off"
+      }
+    ],
+    "configuration": {
+      "title": "Syntax Error Sound",
+      "properties": {
+        "syntaxErrorSound.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable playing the audio on syntax errors."
+        },
+        "syntaxErrorSound.debounceDelay": {
+          "type": "number",
+          "default": 800,
+          "description": "Milliseconds to wait after typing stops before evaluating syntax errors."
+        },
+        "syntaxErrorSound.cooldownDelay": {
+          "type": "number",
+          "default": 2000,
+          "description": "Minimum milliseconds between audio playbacks to avoid overlapping."
+        },
+        "syntaxErrorSound.onlyActiveDocument": {
+          "type": "boolean",
+          "default": true,
+          "description": "Only trigger sound if the error is in the currently active editor document."
+        }
+      }
+    }
+  }
+}

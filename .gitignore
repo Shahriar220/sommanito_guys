@@ -1,0 +1,36 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node & npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+build-vsix-tmp/
+
+# Java & Kotlin
+*.class
+*.log
+
+# IntelliJ / Android Studio internal files
+.idea/
+*.iml
+*.iws
+.gradle/
+
+# Temporary build intermediates (keep final distributions)
+android-studio-syntax-error-sound/build/classes/
+android-studio-syntax-error-sound/build/zip-stage/
+android-studio-syntax-error-sound/build/tmp/
+android-studio-syntax-error-sound/build/reports/
+
+# Keep ready-to-use distribution artifacts
+!android-studio-syntax-error-sound/build/distributions/*.zip
+!android-studio-syntax-error-sound/build/distributions/*.jar
+!vscode-syntax-error-sound/*.vsix

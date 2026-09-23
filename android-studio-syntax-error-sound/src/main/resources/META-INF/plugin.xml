@@ -1,0 +1,41 @@
+<idea-plugin>
+    <id>com.syntaxerror.sound</id>
+    <name>Syntax Error Sound</name>
+    <version>1.0.0</version>
+    <vendor email="developer@local" url="">Developer</vendor>
+
+    <description><![CDATA[
+    Plays your custom error sound whenever a syntax or compilation error is detected in Android Studio!
+    <br><br>
+    Features:
+    <ul>
+      <li>Instant audio feedback on syntax errors</li>
+      <li>Smart cooldown to prevent overlapping sounds</li>
+      <li>Works across Kotlin, Java, XML, and all supported file types</li>
+      <li>Test sound action available under Tools -> Play Syntax Error Sound Test</li>
+    </ul>
+    ]]></description>
+
+    <idea-version since-build="213"/>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.syntaxerror.sound.SyntaxErrorSoundService"/>
+    </extensions>
+
+    <projectListeners>
+        <listener
+            class="com.syntaxerror.sound.SyntaxErrorProblemListener"
+            topic="com.intellij.problems.ProblemListener"/>
+    </projectListeners>
+
+    <actions>
+        <action id="com.syntaxerror.sound.TestSoundAction"
+                class="com.syntaxerror.sound.TestSoundAction"
+                text="Play Syntax Error Sound Test"
+                description="Tests playing the custom syntax error sound">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
